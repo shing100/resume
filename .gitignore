@@ -31,4 +31,4 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/resources/templates/theme/
+!**/src/main/resources/**/theme/

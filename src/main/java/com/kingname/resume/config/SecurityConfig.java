@@ -29,6 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/", "/login", "/sign-up", "check-email-token", "/email-login",
                             "/email-login", "/check-email-login", "/login-link", "/login-by-email").permitAll()
                 .mvcMatchers(HttpMethod.GET, "/profile/*").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/resume/**").permitAll()
                 .anyRequest().authenticated();
 
         http.formLogin()
@@ -52,7 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
         web.ignoring()
-                .mvcMatchers("/node_modules/**")
+                .mvcMatchers("/theme/**")
+                .mvcMatchers("/theme/Dark/**")
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 }
