@@ -30,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/email-login", "/check-email-login", "/login-link", "/login-by-email").permitAll()
                 .mvcMatchers(HttpMethod.GET, "/profile/*").permitAll()
                 .mvcMatchers(HttpMethod.GET, "/resume/**").permitAll()
+                .mvcMatchers(HttpMethod.GET, "/**").permitAll()
                 .anyRequest().authenticated();
 
         http.formLogin()
