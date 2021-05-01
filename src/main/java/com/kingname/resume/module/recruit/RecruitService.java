@@ -10,10 +10,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponents;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -21,13 +18,15 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class RecruitService {
 
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     @Value("${saramin.recruit}")
     private String SARAMIN_RECRUIT_URL;
 
     public void saveRecruitList() {
-
+        JSONObject parameters = new JSONObject();
+        parameters.put("access-key", "");
+        getUrlResponse(parameters);
     }
 
     private Map<String, Object> getUrlResponse(JSONObject parameters) {
