@@ -26,7 +26,8 @@ public class RecruitService {
     public void saveRecruitList() {
         JSONObject parameters = new JSONObject();
         parameters.put("access-key", "");
-        getUrlResponse(parameters);
+        Map<String, Object> urlResponse = getUrlResponse(parameters);
+        log.info(urlResponse.toString());
     }
 
     private Map<String, Object> getUrlResponse(JSONObject parameters) {
