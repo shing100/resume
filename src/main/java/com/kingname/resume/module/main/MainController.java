@@ -3,6 +3,7 @@ package com.kingname.resume.module.main;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MainController {
@@ -20,17 +21,6 @@ public class MainController {
     @GetMapping("/postList")
     public String postList(Model model) {
         return "post-list";
-    }
-
-    // 테마
-    @GetMapping("/resume/theme/Dark/BurntSienna")
-    public String themeDarkBurntSienna(Model model) {
-        return "theme/Dark/BurntSienna/index";
-    }
-
-    @GetMapping("/resume/theme/Dark/LightSlateBlue")
-    public String themeDarkLightSlatedBlue(Model model) {
-        return "theme/Dark/LightSlateBlue/index";
     }
 
 }
