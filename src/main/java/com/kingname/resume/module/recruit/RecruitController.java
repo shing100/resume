@@ -16,7 +16,7 @@ public class RecruitController {
 
     private final RecruitService recruitService;
 
-    @GetMapping
+    @GetMapping("/list")
     public ResponseEntity viewrecruitList() {
         recruitService.saveRecruitList();
         return new ResponseEntity(HttpStatus.OK);

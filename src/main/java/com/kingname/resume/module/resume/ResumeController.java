@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,9 +33,24 @@ public class ResumeController {
         return "theme/" + path + "/" + themeName + "/portfolio";
     }
 
+    @GetMapping("/resume/theme/{path}/{themeName}/portfolio-project-2")
+    public String themePortfolioProject2View(@PathVariable String path, @PathVariable String themeName, Model model) {
+        return "theme/" + path + "/" + themeName + "/portfolio-project-2";
+    }
+
+    @GetMapping("/resume/theme/{path}/{themeName}/portfolio-project-1")
+    public String themePortfolioProjectView(@PathVariable String path, @PathVariable String themeName, Model model) {
+        return "theme/" + path + "/" + themeName + "/portfolio-project-1";
+    }
+
     @GetMapping("/resume/theme/{path}/{themeName}/blog")
     public String themeBlogView(@PathVariable String path, @PathVariable String themeName, Model model) {
         return "theme/" + path + "/" + themeName + "/blog";
+    }
+
+    @GetMapping("/resume/theme/{path}/{themeName}/blog-post-1")
+    public String themeBlogPostView(@PathVariable String path, @PathVariable String themeName, Model model) {
+        return "theme/" + path + "/" + themeName + "/blog-post-1";
     }
 
     @GetMapping("/resume/theme/{path}/{themeName}/contact")

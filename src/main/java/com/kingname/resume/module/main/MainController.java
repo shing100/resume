@@ -13,14 +13,18 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/postFormatStandard")
+    @GetMapping("/post-format-standard")
     public String postFormatStandard(Model model) {
         return "post-format-standard";
     }
 
-    @GetMapping("/postList")
+    @GetMapping("/post-list")
     public String postList(Model model) {
         return "post-list";
     }
 
+    @GetMapping("post-details")
+    public String postDetails(Model model) {
+        return "post-details";
+    }
 }

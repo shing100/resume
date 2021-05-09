@@ -1,9 +1,11 @@
 package com.kingname.resume.module.recruit;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kingname.resume.infra.config.RecruitProperties;
+import com.kingname.resume.module.recruit.response.Jobs;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.minidev.json.JSONObject;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -22,12 +24,15 @@ public class RecruitService {
 
     private final RestTemplate restTemplate;
     private final RecruitProperties recruitProperties;
+    private final ModelMapper modelMapper;
+    private final ObjectMapper objectMapper;
 
     public void saveRecruitList() {
         UriComponents build = UriComponentsBuilder.fromHttpUrl(recruitProperties.getRecruit())
                 .queryParam("access-key", recruitProperties.getKey()).build();
         Map<String, Object> urlResponse = getUrlResponse(build.toUriString());
-        log.info(urlResponse.toString());
+        Jobs jobs = objectMapper.convertValue(urlResponse.get("jobs"), Jobs.class);
+        log.info(jobs.toString());
     }
 
     private Map<String, Object> getUrlResponse(String url) {
