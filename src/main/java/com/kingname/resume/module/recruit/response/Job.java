@@ -11,30 +11,30 @@ import java.util.Date;
 @ToString
 public class Job {
 
-    public String url;
-    public int active;
-    public Company company;
-    public Position position;
-    public String keyword;
-    public Salary salary;
-    public String id;
+    private String url;
+    private int active;
+    private Company company;
+    private Position position;
+    private String keyword;
+    private Salary salary;
+    private String id;
     @JsonProperty("posting-timestamp")
-    public String postingTimestamp;
+    private String postingTimestamp;
     @JsonProperty("posting-date")
-    public Date postingDate;
+    private Date postingDate;
     @JsonProperty("modification-timestamp")
-    public String modificationTimestamp;
+    private String modificationTimestamp;
     @JsonProperty("opening-timestamp")
-    public String openingTimestamp;
+    private String openingTimestamp;
     @JsonProperty("expiration-timestamp")
-    public String expirationTimestamp;
+    private String expirationTimestamp;
     @JsonProperty("expiration-date")
-    public Date expirationDate;
+    private Date expirationDate;
     @JsonProperty("close-type")
-    public CloseType closeType;
+    private CloseType closeType;
     @JsonProperty("read-cnt")
-    public String readCnt;
+    private String readCnt;
     @JsonProperty("apply-cnt")
-    public String applyCnt;
+    private String applyCnt;
 
 }

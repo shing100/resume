@@ -6,8 +6,8 @@ import lombok.ToString;
 @Data
 @ToString
 public class ExperienceLevel {
-    public int code;
-    public int min;
-    public int max;
-    public String name;
+    private int code;
+    private int min;
+    private int max;
+    private String name;
 }

@@ -8,20 +8,20 @@ import lombok.ToString;
 @ToString
 public class Position {
 
-    public String title;
-    public Industry industry;
-    public Location location;
+    private String title;
+    private Industry industry;
+    private Location location;
     @JsonProperty("job-type")
-    public JobType jobType;
+    private JobType jobType;
     @JsonProperty("job-category")
-    public JobCategory jobCategory;
+    private JobCategory jobCategory;
     @JsonProperty("industry-keyword-code")
-    public String industryKeywordCode;
+    private String industryKeywordCode;
     @JsonProperty("job-category-keyword-code")
-    public String jobCategoryKeywordCode;
+    private String jobCategoryKeywordCode;
     @JsonProperty("experience-level")
-    public ExperienceLevel experienceLevel;
+    private ExperienceLevel experienceLevel;
     @JsonProperty("required-education-level")
-    public RequiredEducationLevel requiredEducationLevel;
+    private RequiredEducationLevel requiredEducationLevel;
 
 }

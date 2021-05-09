@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 @Data
 public class RecruitDao {
 
-    private String keyword;     // 기업명, 공고명, 업직종 키워드, 직무내용에서 검색하고자 하는 검색어
+    private String id;
+
+    private String keywords;     // 기업명, 공고명, 업직종 키워드, 직무내용에서 검색하고자 하는 검색어
     private String bbs_gb;      // 공채구분
     private String stock;       //상장여부  kospi : 유가증권  kosdaq : 코스닥  nasdaq : 나스닥
     private String sr;          // 제외 설정  directhire : 헤드헌팅/파견업체 공고 제외

@@ -9,9 +9,9 @@ import java.util.List;
 @ToString
 public class Jobs {
 
-    public int count;
-    public int start;
-    public String total;
-    public List<Job> job;
+    private int count;
+    private int start;
+    private String total;
+    private List<Job> job;
 
 }

@@ -6,5 +6,5 @@ import lombok.ToString;
 @Data
 @ToString
 public class Company {
-    public Detail detail;
+    private Detail detail;
 }

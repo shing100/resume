@@ -1,21 +1,17 @@
 package com.kingname.resume.module.recruit;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kingname.resume.infra.config.RecruitProperties;
 import com.kingname.resume.module.recruit.response.Jobs;
 import com.kingname.resume.module.utils.MultiValueMapConverter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.lang.reflect.Type;
 import java.util.Map;
 import java.util.Objects;
 
@@ -29,7 +25,7 @@ public class RecruitService {
     private final MultiValueMapConverter multiValueMapConverter;
     private final ObjectMapper objectMapper;
 
-    public void saveRecruitList(RecruitDao recruitDao) {
+    public Jobs saveRecruitList(RecruitDao recruitDao) {
         UriComponentsBuilder queryParam = UriComponentsBuilder.fromHttpUrl(recruitProperties.getRecruit())
                 .queryParam("access-key", recruitProperties.getKey());
         if (!Objects.isNull(recruitDao)) {
@@ -38,8 +34,7 @@ public class RecruitService {
         }
 
         Map<String, Object> urlResponse = getUrlResponse(queryParam.build().toUriString());
-        Jobs jobs = objectMapper.convertValue(urlResponse.get("jobs"), Jobs.class);
-        log.info(jobs.toString());
+        return objectMapper.convertValue(urlResponse.get("jobs"), Jobs.class);
     }
 
     private Map<String, Object> getUrlResponse(String url) {

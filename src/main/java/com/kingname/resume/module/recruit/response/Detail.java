@@ -6,6 +6,6 @@ import lombok.ToString;
 @Data
 @ToString
 public class Detail {
-    public String href;
-    public String name;
+    private String href;
+    private String name;
 }

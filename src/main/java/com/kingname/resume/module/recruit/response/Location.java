@@ -6,6 +6,6 @@ import lombok.ToString;
 @Data
 @ToString
 public class Location {
-    public String code;
-    public String name;
+    private String code;
+    private String name;
 }
