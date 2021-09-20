@@ -1,23 +1,26 @@
 package com.kingname.resume.module.resume;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Arrays;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class ResumeController {
 
-    private List<String> nameList = Arrays.asList("BurntSienna", "LightSlateBlue", "Emerald", "Orange", "NavyBlue", "Wedgewood");
+    private final List<String> THEME_LIST = Arrays.asList("BurntSienna", "LightSlateBlue", "Emerald", "Orange", "NavyBlue", "Wedgewood");
+
+    private final ResumeService resumeService;
 
     // 테마
     @GetMapping("/resume/theme/{path}/{themeName}")
     public String themeView(@PathVariable String path, @PathVariable String themeName, Model model) {
-        if (nameList.contains(themeName)) {
+        if (THEME_LIST.contains(themeName)) {
             return "theme/" + path + "/" + themeName + "/index";
         }
         return "redirect:/";
